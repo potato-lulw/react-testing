@@ -6,18 +6,22 @@ import Farewell from "./farewell"
 //! Phase 1 : Write the text
 
 
-test("renders farewell without name", () => {
-    render(<Farewell/>)
-    const farewellText = screen.getByText(/bye/i);
-    expect(farewellText).toBeInTheDocument();
-})
+//? Describe is used to group test cases.
+describe('Farewell', () => {
 
-test("renders farewell with name", () => {
-    const name = 'Om';
-    render(<Farewell name={name}/>)
-    const farewellText = screen.getByText(/bye om/i);
-    expect(farewellText).toBeInTheDocument();
-
+    test("renders without name", () => {
+        render(<Farewell/>)
+        const farewellText = screen.getByText(/bye/i);
+        expect(farewellText).toBeInTheDocument();
+    })
+    
+    test("renders with name", () => {
+        const name = 'Om';
+        render(<Farewell name={name}/>)
+        const farewellText = screen.getByText(/bye om/i);
+        expect(farewellText).toBeInTheDocument();
+    
+    })
 })
 
 
